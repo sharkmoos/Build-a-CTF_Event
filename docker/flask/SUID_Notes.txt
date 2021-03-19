@@ -21,6 +21,7 @@ For privesc from user 'manager' to user 'root':
 -manager needs to be owner of a binary file such as cp
 -have SUID bit set on binary file
 -user can now do binary SUID exploit of cp command to become root
+-example I done was cp of a modified psswd file to /etc/psswd
 
 Dockerfile changes:
 
