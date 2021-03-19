@@ -4,14 +4,14 @@ volumes:
     ftp:
 
 services:
-  ssh:
-    build: ssh
-    restart: always
-    ports:
-      - 22:22
-    volumes:
-      - ./ssh/conf/sshd_config:/etc/ssh/sshd_config:ro
-      - ./ssh/services.d:/etc/services.d:ro
+  # ssh:
+  #   build: ssh
+  #   restart: always
+  #   ports:
+  #     - 22:22
+  #   volumes:
+  #     - ./ssh/conf/sshd_config:/etc/ssh/sshd_config:ro
+  #     - ./ssh/services.d:/etc/services.d:ro
 
   flask:
     build: flask

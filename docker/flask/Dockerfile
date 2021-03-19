@@ -10,14 +10,14 @@ RUN useradd -rm -d /home/intern -s /bin/bash -u 3232 intern \
 
 RUN pip3 install flask gunicorn requests pycryptodome cryptography flask_sqlalchemy PyJWT
 
-COPY templates/ /home/flask/templates/
-COPY static/ /home/flask/static/
+COPY templates/ /home/intern/templates/
+COPY static/ /home/intern/static/
 
 COPY source.c runme research.txt managerflag.txt /home/manager/
-COPY main.py create_db.py runapp.sh /home/flask/
+COPY main.py create_db.py runapp.sh /home/intern/
 COPY rootflag.txt /root/rootflag.txt
 
-RUN chmod +x /home/flask/runapp.sh  \
+RUN chmod +x /home/intern/runapp.sh  \
     && chown manager /home/manager/runme \
     && chown manager /usr/bin/cp \
     && sudo -u manager chmod +s /usr/bin/cp \
@@ -27,4 +27,4 @@ RUN chmod +x /home/flask/runapp.sh  \
 
 EXPOSE 5000
 
-ENTRYPOINT ["./home/flask/runapp.sh"]
+ENTRYPOINT ["./home/intern/runapp.sh"]

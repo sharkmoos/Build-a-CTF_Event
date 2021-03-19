@@ -185,8 +185,16 @@ def adminConsole():
         elif request.method == "POST":
             command = request.form.get('command')
             #result = exec(print(command))
-            result = (subprocess.check_output(command, shell=True)).decode('UTF-8')
-            return render_template('console.html', result=result)
+            #result = (subprocess.check_output(command, shell=True)).decode('UTF-8')
+            #result = os.system(command)
+            if ("python" in command) or ("bash" in command):
+                print(command)
+                result = "For security, bash and python scripts are blocked"
+                return render_template('console.html', result=result)
+            else:
+                result = subprocess.Popen([command], stdout=subprocess.PIPE,shell=True)
+                result = (result.stdout.read()).decode('UTF-8')
+                return render_template('console.html', result=result)
     else:
         return "Forbidden", 403
 
