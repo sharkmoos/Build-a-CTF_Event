@@ -13,20 +13,17 @@ RUN pip3 install flask gunicorn requests pycryptodome cryptography flask_sqlalch
 COPY templates/ /home/flask/templates/
 COPY static/ /home/flask/static/
 
-COPY admin/ home/flask/admin/
-
 COPY source.c runme research.txt managerflag.txt /home/manager/
 COPY main.py create_db.py runapp.sh /home/flask/
-COPY rootflag.txt /home/root
+COPY rootflag.txt /root/rootflag.txt
 
 RUN chmod +x /home/flask/runapp.sh  \
-    && ./home/flask/create_db.py \
     && chown manager /home/manager/runme \
     && chown manager /usr/bin/cp \
     && sudo -u manager chmod +s /usr/bin/cp \
     && chmod +s /home/manager/runme \
     && chmod 400 /home/manager/managerflag.txt \
-    && RUN chmod 400 /home/root/rootflag.txt
+    && chmod 400 /root/rootflag.txt
 
 EXPOSE 5000
 
