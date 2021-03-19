@@ -1,0 +1,17 @@
+{% extends 'home.html' %}
+    <main role="main" class="container">
+      {% block content %}
+      <div class="starter-template">
+        <h1>title</h1>
+        <img src="../static/logo.jpg" alt="Our Logo"style="width:400px;height:400px;">
+        {%if not signedIn%}
+          <p class="lead">Site content.</p>
+          <p class="lead"></p><br>More content!</p>
+        {% else %}
+          <p class="lead">Welcome back! {{user.username}}<br> Head to the notes page to start.</p>
+        {% endif %}
+      </div>
+    </main>
+{% endblock content %}
+</body>
+</html>
