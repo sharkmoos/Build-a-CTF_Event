@@ -22,6 +22,7 @@ RUN useradd -rm -d /home/user -s /bin/bash -u 3232 user \
 
 # Setup shared volume
 # VOLUME ["/var/ftp"]
+COPY ftp/ /var/ftp
 
 EXPOSE 20-21
 EXPOSE 65500-65515

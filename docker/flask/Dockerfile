@@ -11,13 +11,10 @@ COPY templates/ /home/flask/templates/
 
 COPY static/ /home/flask/static/
 
-COPY admin/ home/flask/admin/
-
 COPY main.py create_db.py runapp.sh /home/flask/
 
-RUN chmod +x /home/flask/runapp.sh  \
-    && ./home/flask/create_db.py
+RUN chmod +x /home/flask/runapp.sh 
 
-EXPOSE 5000 7070
+EXPOSE 5000
 
 ENTRYPOINT ["./home/flask/runapp.sh"]
