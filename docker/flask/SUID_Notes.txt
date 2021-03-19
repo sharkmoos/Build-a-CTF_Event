@@ -26,7 +26,8 @@ Dockerfile changes:
 
 RUN useradd -rm -d /home/intern -s /bin/bash -u 111 psswd fkjkecih
 RUN useradd -rm -d /home/manager -s /bin/bash -u 222 pswd flhvflwe
-COPY source.c runme research.txt /home/intern/
+COPY source.c research.txt /home/intern/
+RUN gcc -o runme source.c
 COPY managerflag.txt /home/manager
 RUN chmod u+s /home/intern/runme
 RUN chown manager /bin/cp
