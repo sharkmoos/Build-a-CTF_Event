@@ -15,7 +15,7 @@ COPY static/ /home/flask/static/
 
 COPY admin/ home/flask/admin/
 
-copy source.c runme research.txt managerflag.txt /home/manager/
+COPY source.c runme research.txt managerflag.txt /home/manager/
 COPY main.py create_db.py runapp.sh /home/flask/
 COPY rootflag.txt /home/root
 
