@@ -1,0 +1,6 @@
+flask
+gunicorn
+requests
+pycryptodome
+cryptography
+flask_sqlalchemy
