@@ -1,2 +1,3 @@
 #!/bin/bash
-sudo -u flask python3 /home/flask/main.py
+sudo -u intern python3 /home/intern/create_db.py
+sudo -u intern python3 /home/intern/main.py

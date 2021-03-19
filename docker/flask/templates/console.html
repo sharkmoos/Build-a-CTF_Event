@@ -1,0 +1,26 @@
+{% extends 'home.html' %}
+{% block content %}
+<div class="starter-template">
+  <h1>Lab Server Remote Console</h1>
+</div>
+
+<body class="text-center">
+    <form name="console" onclick="return validateForm()" class="form-signin" action="/admin/console" method="POST">
+      <h1 class="h3 mb-3 font-weight-normal">Run Commands on Server Here</h1>
+      <label for="command" class="sr-only">Command..</label>
+      <input name="command" type="text" id="command" class="form-control" placeholder="Command" required autofocus>
+      <button class="btn btn btn-primary btn-block" type="submit">Run command</button>
+      <!-- {% if reason is not none %} -->
+      <!-- <p class="alert-danger"> Login Failed! Reason: {{reason}}</p> -->
+      <!-- {% endif %} -->
+      <p>Result:{{ result }} </p>
+    </form>
+  </body>
+</main>
+{% endblock content %}
+  </body>
+
+</html>
+    </div> <!-- /container -->
+  </body>
+</html>

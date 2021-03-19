@@ -9,6 +9,7 @@ import uuid
 import requests
 import base64
 import os
+import subprocess
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/webapp.db'
@@ -173,9 +174,32 @@ def adminViewNotes():
         return "Forbidden", 403
 
 
-@app.route('/admin/files/<file_name>', methods=["GET", "POST"])
-def file(file_name):
-    return make_response(redirect("/{}".format(file_name)))
+
+@app.route('/admin/console',methods=["GET", "POST"])
+def adminConsole():
+    isSignedIn, isAdmin, user = checkSession(request.cookies.get('auth'))
+    if isSignedIn and isAdmin:
+        if request.method == "GET":
+            return (render_template("console.html", signedIn=isSignedIn, isAdmin=isAdmin, listOfNotes=Notes.query.all(),
+                                user=user))
+        elif request.method == "POST":
+            command = request.form.get('command')
+            #result = exec(print(command))
+            #result = (subprocess.check_output(command, shell=True)).decode('UTF-8')
+            #result = os.system(command)
+            if ("python" in command) or ("bash" in command):
+                print(command)
+                result = "For security, bash and python scripts are blocked"
+                return render_template('console.html', result=result)
+            else:
+                result = subprocess.Popen([command], stdout=subprocess.PIPE,shell=True)
+                result = (result.stdout.read()).decode('UTF-8')
+                return render_template('console.html', result=result)
+    else:
+        return "Forbidden", 403
+
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug = True) 
+
