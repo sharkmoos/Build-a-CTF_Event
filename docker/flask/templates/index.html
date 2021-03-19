@@ -2,7 +2,12 @@
     <main role="main" class="container">
       {% block content %}
       <div class="starter-template">
-      	<style>
+      	
+        <h1>Stealth Laboratory</h1>
+        
+        <!--<img src="../static/logo.jpg" alt="Our Logo"style="width:400px;height:400px;"-->
+        {%if not signedIn%}
+        <style>
       	h1 {
       		color: white;
       	}
@@ -12,10 +17,6 @@
       	
       	
       	</style>
-        <h1>Stealth Laboratory</h1>
-        
-        <!--<img src="../static/logo.jpg" alt="Our Logo"style="width:400px;height:400px;"-->
-        {%if not signedIn%}
           <p class="lead">Germ Warfare Creators</p>
           <body background="../static/map.jpg">
          
