@@ -6,7 +6,7 @@ RUN useradd -rm -d /home/intern -s /bin/bash -u 3232 intern \
     && echo 'intern:my_wifes_birthday' | chpasswd \
     && useradd -rm -d /home/manager -s /bin/bash -u 3233 manager \
     && echo 'manager:s3cret_passw0rd' | chpasswd \
-    && echo 'root:date_of_birth' | chpasswd \
+    && echo 'root:date_of_birth' | chpasswd 
 
 RUN pip3 install flask gunicorn requests pycryptodome cryptography flask_sqlalchemy PyJWT
 
