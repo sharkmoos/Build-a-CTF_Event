@@ -6,7 +6,6 @@ The team at the university of Canely approached Coventry University, knowing the
 
 Good luck, the world is counting on you.
 
-
-
+![virus](./images/virus.jpg)
 
 
