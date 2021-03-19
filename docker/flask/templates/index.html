@@ -2,11 +2,27 @@
     <main role="main" class="container">
       {% block content %}
       <div class="starter-template">
-        <h1>title</h1>
-        <img src="../static/logo.jpg" alt="Our Logo"style="width:400px;height:400px;">
+      	<style>
+      	h1 {
+      		color: white;
+      	}
+      	p {
+      		color: white;
+      	}
+      	
+      	
+      	</style>
+        <h1>Stealth Laboratory</h1>
+        
+        <!--<img src="../static/logo.jpg" alt="Our Logo"style="width:400px;height:400px;"-->
         {%if not signedIn%}
-          <p class="lead">Site content.</p>
-          <p class="lead"></p><br>More content!</p>
+          <p class="lead">Germ Warfare Creators</p>
+          <body background="../static/map.jpg">
+         
+          <p><br>Stealth Labs is home to a group of scientists, military analysts, and arms control experts who are at the forefront of biological research projects involving germ warfare.</p>
+          
+        <br><br><br><br><br>  
+        <img src="./static/germs.png" alt="Germs"
         {% else %}
           <p class="lead">Welcome back! {{user.username}}<br> Head to the notes page to start.</p>
         {% endif %}
@@ -14,4 +30,6 @@
     </main>
 {% endblock content %}
 </body>
+
 </html>
+

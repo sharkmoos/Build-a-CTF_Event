@@ -1,13 +1,15 @@
 <!doctype html>
 <html lang="en">
   <head>
+  
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../static/favicon.ico">
 
-    <title>Log In - sitename</title>
+    <title>Log In - Stealth Laboratory</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
@@ -15,10 +17,25 @@
     <!-- Custom styles for this template -->
     <link href="/static/css/signin.css" rel="stylesheet">
   </head>
+ 
+
 
   <body class="text-center">
+  <body background="../static/map.jpg">
+  <style>
+      	h1 {
+      		color: white;
+      	}
+      	p {
+      		color: white;
+      	}
+      	
+      	
+   </style>
+ 
+
     <form class="form-signin" action="/login" method="POST">
-      <img class="mb-4" src="/static/logo.jpg" alt="" width="72" height="72">
+      <img class="mb-4" src="/static/auth.jpg" alt="" width="280" height="150">
       <h1 class="h3 mb-3 font-weight-normal">Log in Here</h1>
      
       <label for="username" class="sr-only">Username</label>
@@ -30,6 +47,10 @@
       {% if reason is not none %}
       <p class="alert-danger"> Login Failed! Reason: {{reason}}</p>
       {% endif %}
+      <br><br>
+      <p> Plausible Deniability </p>
+      
+      <img src="../static/bio.jpeg">
     </form>
   </body>
 </html>
