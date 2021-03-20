@@ -23,7 +23,7 @@ RUN chmod +x /home/intern/runapp.sh  \
     && sudo -u manager chmod +s /usr/bin/cp \
     && chmod +s /home/manager/runme \
     && chmod 644 /etc/shadow \
-    && chgrp rootish /etc/shadow
+    && chgrp rootish /etc/shadow \
     && chmod 400 /home/manager/user.txt \
     && chmod 400 /root/root.txt 
 
