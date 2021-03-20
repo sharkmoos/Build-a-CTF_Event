@@ -19,8 +19,8 @@ COPY root.txt /root/root.txt
 
 RUN chmod +x /home/intern/runapp.sh  \
     && chown manager /home/manager/runme \
-    && chown manager /usr/bin/cp \
-    && sudo -u manager chmod +s /usr/bin/cp \
+    && chown manager /usr/bin/find \
+    && sudo -u manager chmod +s /usr/bin/find \
     && chmod +s /home/manager/runme \
     && chmod 400 /home/manager/user.txt \
     && chmod 400 /root/root.txt
