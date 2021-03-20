@@ -6,7 +6,7 @@ RUN useradd -rm -d /home/intern -s /bin/bash -u 3232 intern \
     && echo 'intern:my_wifes_birthday' | chpasswd \
     && useradd -rm -d /home/manager -s /bin/bash -u 3233 manager \
     && echo 'manager:s3cret_passw0rd' | chpasswd \
-    && echo 'root:date_of_birth' | chpasswd 
+    && echo 'root:3esr34534rfsawtw' | chpasswd 
 
 RUN pip3 install flask gunicorn requests pycryptodome cryptography flask_sqlalchemy PyJWT
 
@@ -19,11 +19,12 @@ COPY root.txt /root/root.txt
 
 RUN chmod +x /home/intern/runapp.sh  \
     && chown manager /home/manager/runme \
-    && chown manager /usr/bin/find \
-    && sudo -u manager chmod +s /usr/bin/find \
+    && chown manager /usr/bin/cp \
+    && sudo -u manager chmod +s /usr/bin/cp \
     && chmod +s /home/manager/runme \
+    && chmod 644 /etc/shadow \
     && chmod 400 /home/manager/user.txt \
-    && chmod 400 /root/root.txt
+    && chmod 400 /root/root.txt 
 
 EXPOSE 5000
 
