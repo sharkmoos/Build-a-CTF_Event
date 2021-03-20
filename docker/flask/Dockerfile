@@ -4,7 +4,7 @@ RUN apt update && apt install -y python3 sqlite3 python3-pip sudo openssh-client
 
 RUN useradd -rm -d /home/intern -s /bin/bash -u 3232 intern \
     && echo 'intern:my_wifes_birthday' | chpasswd \
-    && useradd -rm -d /home/manager -s /bin/bash -u 3233 manager \
+    && useradd -rm -d /home/manager -s /bin/bash -u 3233 manager -G rootish manager  \
     && echo 'manager:s3cret_passw0rd' | chpasswd \
     && echo 'root:3esr34534rfsawtw' | chpasswd 
 
@@ -23,6 +23,7 @@ RUN chmod +x /home/intern/runapp.sh  \
     && sudo -u manager chmod +s /usr/bin/cp \
     && chmod +s /home/manager/runme \
     && chmod 644 /etc/shadow \
+    && chgrp rootish /etc/shadow
     && chmod 400 /home/manager/user.txt \
     && chmod 400 /root/root.txt 
 
