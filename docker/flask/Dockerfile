@@ -4,7 +4,7 @@ RUN apt update && apt install --no-install-recommends -y python3 sqlite3 python3
 RUN useradd -rm -d /home/intern -s /bin/bash -u 3232 intern \
     && echo 'intern:my_wifes_birthday' | chpasswd \
     && groupadd rootish \
-    && useradd -rm -d /home/manager -s /bin/bash -u 3233 -G rootish manager  \
+    && useradd -rm -d /home/manager -s /bin/bash -u 222 -G rootish manager  \
     && echo 'manager:s3cret_passw0rd' | chpasswd \
     && echo 'root:3esr34534rfsawtw' | chpasswd 
 
