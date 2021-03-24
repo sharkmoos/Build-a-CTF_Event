@@ -20,7 +20,6 @@ COPY root.txt /root/root.txt
 RUN chmod +x /home/intern/runapp.sh  \
     && chown manager /usr/bin/cp \
     && sudo -u manager chmod +s /usr/bin/cp \
-    && chmod +s /home/manager/runme \
     && chmod 644 /etc/shadow \
     && chgrp rootish /etc/shadow \
     && chmod 400 /home/manager/user.txt \
