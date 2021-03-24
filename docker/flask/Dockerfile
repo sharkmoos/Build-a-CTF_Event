@@ -18,8 +18,6 @@ COPY main.py create_db.py runapp.sh /home/intern/
 COPY root.txt /root/root.txt
 
 RUN chmod +x /home/intern/runapp.sh  \
-    && gcc /home/manager/source.c -o runme \
-    && chown manager /home/manager/runmme \
     && chown manager /usr/bin/cp \
     && sudo -u manager chmod +s /usr/bin/cp \
     && chmod +s /home/manager/runme \
