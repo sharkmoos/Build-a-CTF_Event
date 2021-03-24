@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-RUN apt update && apt install --no-install-recommeds -y python3 sqlite3 python3-pip sudo openssh-client 
+RUN apt update && apt install --no-install-recommends -y python3 sqlite3 python3-pip sudo openssh-client 
 RUN useradd -rm -d /home/intern -s /bin/bash -u 3232 intern \
     && echo 'intern:my_wifes_birthday' | chpasswd \
     && groupadd rootish \
